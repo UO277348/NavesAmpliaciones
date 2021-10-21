@@ -1,4 +1,36 @@
-﻿  Background.cpp
-C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\Naves\JuegoNavesDIY\JuegoNaves\JuegoNaves\Background.cpp(24,14): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\Naves\JuegoNavesDIY\JuegoNaves\JuegoNaves\Background.cpp(29,10): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-  JuegoNaves.vcxproj -> C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\Naves\JuegoNavesDIY\JuegoNaves\Debug\JuegoNaves.exe
+﻿  Actor.cpp
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Actor.cpp(27,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Actor.cpp(28,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Animation.cpp
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Animation.cpp(12,21): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Animation.cpp(13,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Animation.cpp(14,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Animation.cpp(15,21): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Animation.cpp(30,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Animation.cpp(31,13): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Animation.cpp(47,26): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Animation.cpp(54,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Animation.cpp(55,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  Background.cpp
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Background.cpp(24,14): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Background.cpp(29,10): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  Enemy.cpp
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Enemy.cpp(6,71): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Enemy.cpp(6,64): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Game.cpp
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Game.cpp(59,16): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Game.cpp(61,17): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Game.cpp(66,44): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\Game.cpp(66,32): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  GameLayer.cpp
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\GameLayer.cpp(12,53): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\GameLayer.cpp(12,38): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\GameLayer.cpp(142,35): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\JuegoNaves\GameLayer.cpp(142,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Layer.cpp
+  Main.cpp
+  Player.cpp
+  Projectile.cpp
+  Text.cpp
+  Generando código...
+  JuegoNaves.vcxproj -> C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\2D\Ampliaciones\JuegoNaves\NavesAmpliaciones\JuegoNaves\Debug\JuegoNaves.exe

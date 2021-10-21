@@ -21,6 +21,7 @@ public:
 	Text* textPoints;
 	int points;
 	int newEnemyTime = 0;
+	int vidas = 3;
 
 	Player* player;
 	Background* background;
