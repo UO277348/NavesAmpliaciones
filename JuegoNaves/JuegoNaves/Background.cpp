@@ -28,7 +28,6 @@ void Background::update() {
 			// vuelve por la izquierda
 			x = 0 - width / 2;
 		}
-
 	}
 }
 
