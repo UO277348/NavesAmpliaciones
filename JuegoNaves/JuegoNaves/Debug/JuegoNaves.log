@@ -1,0 +1,4 @@
+﻿  Background.cpp
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\Naves\JuegoNavesDIY\JuegoNaves\JuegoNaves\Background.cpp(24,14): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\Naves\JuegoNavesDIY\JuegoNaves\JuegoNaves\Background.cpp(29,10): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+  JuegoNaves.vcxproj -> C:\Users\Pablo\Desktop\Uniovi\Tercero\Videojuegos\Naves\JuegoNavesDIY\JuegoNaves\Debug\JuegoNaves.exe
