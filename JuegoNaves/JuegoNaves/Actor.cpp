@@ -40,8 +40,7 @@ bool Actor::isOverlap(Actor* actor) {
 		&& actor->x + actor->width / 2 >= x - width / 2
 		&& actor->y + actor->height / 2 >= y - height / 2
 		&& actor->y - actor->height / 2 <= y + height / 2) {
-
-		overlap = true;
+			overlap = true;
 	}
 	return overlap;
 }

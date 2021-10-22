@@ -7,16 +7,20 @@ GameLayer::GameLayer(Game* game)
 }
 
 void GameLayer::init() {
-	vidas = 3;
 	points = 0;
-	textPoints = new Text("hola", WIDTH * 0.92, HEIGHT * 0.04, game);
+	textPoints = new Text("hola", WIDTH * 0.92, HEIGHT * 0.07, game);
 	textPoints->content = to_string(points);
 
+	vidas = 3;
+	textVida = new Text("vidas", WIDTH * 0.72, HEIGHT * 0.07, game);
+	textVida->content = to_string(vidas);
 
 	player = new Player(50, 50, game);
 	background = new Background("res/fondo.png", WIDTH * 0.5, HEIGHT * 0.5, -1,game);
 	backgroundPoints = new Actor("res/icono_puntos.png",
-		WIDTH * 0.85, HEIGHT * 0.05, 24, 24, game);
+		WIDTH * 0.85, HEIGHT * 0.07, 24, 24, game);
+	backgroundVidas = new Actor("res/corazon.png",
+		WIDTH * 0.65, HEIGHT * 0.07, 44, 36, game);
 
 
 	projectiles.clear(); // Vaciar por si reiniciamos el juego
@@ -156,10 +160,14 @@ void GameLayer::update() {
 	// Colisiones
 	for (auto const& enemy : enemies) {
 		if (player->isOverlap(enemy)) {
-			if (vidas == 0) {
+			if (vidas > 1) {
+				vidas--;
+				textVida->content = to_string(vidas);
+			}
+			else {
 				init();
 			}
-			vidas--;
+			
 			return; // Cortar el for
 		}
 	}
@@ -239,7 +247,9 @@ void GameLayer::draw() {
 		enemy->draw();
 	}
 	textPoints->draw();
+	textVida->draw();
 	backgroundPoints->draw();
+	backgroundVidas->draw();
 
 	SDL_RenderPresent(game->renderer); // Renderiza
 }

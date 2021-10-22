@@ -9,7 +9,10 @@ void Player::update() {
 	if (shootTime > 0) {
 		shootTime--;
 	}
-
+	if (invulnerableTime == 0) {
+		isInvulnerable = false;
+	}
+	invulnerableTime--;
 	x = x + vx;
 	y = y + vy;
 }
@@ -31,4 +34,19 @@ Projectile* Player::shoot() {
 		return NULL;
 	}
 
+}
+
+bool Player::isOverlap(Actor* actor) {
+	bool juntitos = Actor::isOverlap(actor);
+
+	if (juntitos && !isInvulnerable) {
+		isInvulnerable = true;
+		invulnerableTime = 30;
+	}
+	else if (juntitos && isInvulnerable)
+		juntitos = false;
+		
+	
+
+	return juntitos;
 }
