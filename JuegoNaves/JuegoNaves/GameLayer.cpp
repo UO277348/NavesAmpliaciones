@@ -16,6 +16,10 @@ void GameLayer::init() {
 	textVida->content = to_string(vidas);
 
 	player = new Player(50, 50, game);
+
+	textMunicion = new Text("municion", WIDTH * 0.52, HEIGHT * 0.07, game);
+	textMunicion->content = to_string(player->munition);
+
 	background = new Background("res/fondo.png", WIDTH * 0.5, HEIGHT * 0.5, -1,game);
 	backgroundPoints = new Actor("res/icono_puntos.png",
 		WIDTH * 0.85, HEIGHT * 0.07, 24, 24, game);
@@ -29,6 +33,8 @@ void GameLayer::init() {
 	enemies.push_back(new Enemy(300, 50, game));
 	enemies.push_back(new Enemy(300, 200, game));
 
+	recolectables.clear();
+	recolectables.push_back(new CajaMunicion(300, 125, game));
 }
 
 void GameLayer::processControls() {
@@ -137,6 +143,7 @@ void GameLayer::keysToControls(SDL_Event event) {
 }
 
 void GameLayer::update() {
+	textMunicion->content = to_string(player->munition);
 	background->update();
 	// Generar enemigos
 	newEnemyTime--;
@@ -145,6 +152,14 @@ void GameLayer::update() {
 		int rY = (rand() % (300 - 60)) + 1 + 60;
 		enemies.push_back(new Enemy(rX, rY, game));
 		newEnemyTime = 110;
+	}
+
+	newRecolectbale--;
+	if (newRecolectbale <= 0) {
+		int rX = (rand() % (600 - 500)) + 1 + 500;
+		int rY = (rand() % (300 - 60)) + 1 + 60;
+		recolectables.push_back(new CajaMunicion(rX,rY,game));
+		newRecolectbale = 200;
 	}
 
 
@@ -159,6 +174,10 @@ void GameLayer::update() {
 
 	for (auto const& projectile : projectiles) {
 		projectile->update();
+	}
+
+	for (auto const& caja : recolectables) {
+		caja->update();
 	}
 
 	// Colisiones
@@ -180,6 +199,7 @@ void GameLayer::update() {
 
 	list<Enemy*> deleteEnemies;
 	list<Projectile*> deleteProjectiles;
+	list<CajaMunicion*> deleteCajas;
 
 	for (auto const& projectile : projectiles) {
 		if (projectile->isInRender() == false) {
@@ -213,8 +233,10 @@ void GameLayer::update() {
 					deleteEnemies.push_back(enemy);
 
 					//Aqui no habría problema
+					player->munition++;
 					points++;
 					textPoints->content = to_string(points);
+					textMunicion->content = to_string(player->munition);
 				}
 				//Cuidado que si colisionan 2 cuenta dos aunque elimines 1
 				/*points++;
@@ -235,6 +257,21 @@ void GameLayer::update() {
 		}
 	}
 
+	for (auto const& caja : recolectables) {
+		if (player->isOverlap(caja)) {
+			bool cajaInList = std::find(deleteCajas.begin(),
+				deleteCajas.end(),
+				caja) != deleteCajas.end();
+
+			if (!cajaInList) {
+				deleteCajas.push_back(caja);
+
+				player->munition += caja->munExtra;
+				textMunicion->content = to_string(player->munition);
+			}
+		}
+	}
+
 	for (auto const& delEnemy : deleteEnemies) {
 		enemies.remove(delEnemy);
 	}
@@ -245,6 +282,10 @@ void GameLayer::update() {
 	}
 	deleteProjectiles.clear();
 
+	for (auto const& delCaja : deleteCajas) {
+		recolectables.remove(delCaja);
+	}
+	deleteCajas.clear();
 
 	cout << "update GameLayer" << endl;
 }
@@ -261,8 +302,14 @@ void GameLayer::draw() {
 	for (auto const& enemy : enemies) {
 		enemy->draw();
 	}
+
+	for (auto const& caja : recolectables) {
+		caja->draw();
+	}
+
 	textPoints->draw();
 	textVida->draw();
+	textMunicion->draw();
 	backgroundPoints->draw();
 	backgroundVidas->draw();
 
