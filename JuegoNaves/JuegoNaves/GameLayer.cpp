@@ -223,7 +223,13 @@ void GameLayer::update() {
 			}
 
 			if (player->isOverlap(projectile) && projectile->enemyShot) {
-				init();
+				if (vidas > 1) {
+					vidas--;
+					textVida->content = to_string(vidas);
+				}
+				else {
+					init();
+				}
 				return;
 			}
 		}
