@@ -151,6 +151,10 @@ void GameLayer::update() {
 	player->update();
 	for (auto const& enemy : enemies) {
 		enemy->update();
+		Projectile* newProjectile = enemy->shootPlayer();
+		if (newProjectile != NULL) {
+			projectiles.push_back(newProjectile);
+		}
 	}
 
 	for (auto const& projectile : projectiles) {
@@ -192,7 +196,7 @@ void GameLayer::update() {
 
 	for (auto const& enemy : enemies) {
 		for (auto const& projectile : projectiles) {
-			if (enemy->isOverlap(projectile)) {
+			if (enemy->isOverlap(projectile) && !projectile->enemyShot) {
 				bool pInList = std::find(deleteProjectiles.begin(),
 					deleteProjectiles.end(),
 					projectile) != deleteProjectiles.end();
@@ -216,6 +220,11 @@ void GameLayer::update() {
 				/*points++;
 				textPoints->content = to_string(points);*/
 
+			}
+
+			if (player->isOverlap(projectile) && projectile->enemyShot) {
+				init();
+				return;
 			}
 		}
 	}

@@ -15,6 +15,10 @@ void Enemy::update() {
 		vx = vx * -1;
 	}*/
 
+	if (shootTime > 0) {
+		shootTime--;
+	}
+
 	// Actualizar la animación
 	animation->update();
 
@@ -24,6 +28,16 @@ void Enemy::update() {
 
 void Enemy::draw() {
 	animation->draw(x, y);
+}
+
+Projectile* Enemy::shootPlayer() {
+	if(shootTime == 0) {
+		shootTime = shootCadence;
+		return new Projectile("res/disparo_enemigo.png",x, y, game, true);
+	}
+	else {
+		return NULL;
+	}
 }
 
 
