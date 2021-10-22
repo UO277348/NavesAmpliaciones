@@ -2,6 +2,7 @@
 
 #include "Actor.h"
 #include "Animation.h" 
+#include "Projectile.h"
 
 class Enemy : public Actor
 {
@@ -12,5 +13,8 @@ public:
 	Animation* aMoving;
 	Animation* animation; // Referencia a la animación mostrada
 
+	int shootCadence = 15;
+	int shootTime = 5;
+	Projectile* shootPlayer();
 };
 
