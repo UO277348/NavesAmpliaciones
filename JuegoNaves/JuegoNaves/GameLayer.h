@@ -22,9 +22,13 @@ public:
 	int points;
 	int newEnemyTime = 0;
 
+	Text* textVida;
+	int vidas = 3;
+
 	Player* player;
 	Background* background;
 	Actor* backgroundPoints;
+	Actor* backgroundVidas;
 
 	bool controlShoot = false;
 	int controlMoveX = 0;
