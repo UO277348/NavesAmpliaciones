@@ -26,7 +26,8 @@ void Player::moveY(float axis) {
 }
 
 Projectile* Player::shoot() {
-	if (shootTime == 0) {
+	if (shootTime == 0 && munition>0) {
+		munition--;
 		shootTime = shootCadence;
 		return new Projectile(x, y, game);
 	}

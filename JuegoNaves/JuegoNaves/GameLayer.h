@@ -6,6 +6,7 @@
 #include "Enemy.h"
 #include "Projectile.h"
 #include "Text.h"
+#include "CajaMunicion.h"
 
 #include <list>
 class GameLayer : public Layer
@@ -21,9 +22,12 @@ public:
 	Text* textPoints;
 	int points;
 	int newEnemyTime = 0;
+	int newRecolectbale = 0;
 
 	Text* textVida;
 	int vidas = 3;
+
+	Text* textMunicion;
 
 	Player* player;
 	Background* background;
@@ -36,6 +40,7 @@ public:
 
 	list<Enemy*> enemies;
 	list<Projectile*> projectiles;
+	list<CajaMunicion*> recolectables;
 };
 
 
