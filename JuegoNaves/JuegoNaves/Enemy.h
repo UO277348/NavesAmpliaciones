@@ -13,7 +13,7 @@ public:
 	Animation* aMoving;
 	Animation* animation; // Referencia a la animación mostrada
 
-	int shootCadence = 15;
+	int shootCadence = 50;
 	int shootTime = 5;
 	Projectile* shootPlayer();
 };

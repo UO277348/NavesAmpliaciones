@@ -6,8 +6,8 @@ Projectile::Projectile(float x, float y, Game* game) :
 }
 
 Projectile::Projectile(string filename, float x, float y, Game* game, bool enemyShot) :
-	Actor(filename, x, y, 18, 6, game) {
-	vx = 9;
+	Actor(filename, x, y, 20, 20, game) {
+	vx = -9;
 	this->enemyShot = enemyShot;
 }
 

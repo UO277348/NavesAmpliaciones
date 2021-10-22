@@ -146,6 +146,10 @@ void GameLayer::update() {
 	player->update();
 	for (auto const& enemy : enemies) {
 		enemy->update();
+		Projectile* newProjectile = enemy->shootPlayer();
+		if (newProjectile != NULL) {
+			projectiles.push_back(newProjectile);
+		}
 	}
 
 	for (auto const& projectile : projectiles) {
@@ -204,6 +208,11 @@ void GameLayer::update() {
 				/*points++;
 				textPoints->content = to_string(points);*/
 
+			}
+
+			if (player->isOverlap(projectile) && projectile->enemyShot) {
+				init();
+				return;
 			}
 		}
 	}
