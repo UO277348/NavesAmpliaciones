@@ -33,7 +33,6 @@ void GameLayer::init() {
 	enemies.clear(); // Vaciar por si reiniciamos el juego
 	enemies.push_back(new Minion(300, 50, game));
 	enemies.push_back(new Minion(300, 200, game));
-	enemies.push_back(new Boss(300, 300, game));
 
 	recolectables.clear();
 	recolectables.push_back(new CajaMunicion(300, 125, game));
