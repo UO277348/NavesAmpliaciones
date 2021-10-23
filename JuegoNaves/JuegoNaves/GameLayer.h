@@ -24,6 +24,7 @@ public:
 	Text* textPoints;
 	int points;
 	int newEnemyTime = 0;
+	int newBossTime = 0;
 	int newRecolectbale = 0;
 
 	Text* textVida;

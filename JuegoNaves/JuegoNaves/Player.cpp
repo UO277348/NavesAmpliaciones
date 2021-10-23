@@ -9,9 +9,9 @@ void Player::update() {
 	if (shootTime > 0) {
 		shootTime--;
 	}
-	//if (invulnerableTime == 0) {
-	//	isInvulnerable = false;
-	//}
+	if (invulnerableTime == 0) {
+		isInvulnerable = false;
+	}
 	invulnerableTime--;
 	x = x + vx;
 	y = y + vy;

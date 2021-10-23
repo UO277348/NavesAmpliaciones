@@ -8,6 +8,7 @@ Boss::Boss(float x, float y, Game* game)
 	shootCadence = 25;
 	shootTime = 0;
 	tpTime = 0;
+	vidas = 3;
 
 	aMoving = new Animation("res/animacion_boss.png", width, height,
 		160, 40, 8, 4, game);

@@ -149,10 +149,18 @@ void GameLayer::update() {
 	background->update();
 	// Generar enemigos
 	newEnemyTime--;
+	newBossTime--;
 	if (newEnemyTime <= 0) {
 		int rX = (rand() % (600 - 500)) + 1 + 500;
 		int rY = (rand() % (300 - 60)) + 1 + 60;
-		enemies.push_back(new Minion(rX, rY, game));
+
+		if (newBossTime<=0) {
+			enemies.push_back(new Boss(rX, rY, game));
+			newBossTime = 300;
+		}
+		else
+			enemies.push_back(new Minion(rX, rY, game));
+
 		newEnemyTime = 110;
 	}
 
@@ -218,7 +226,7 @@ void GameLayer::update() {
 
 	for (auto const& enemy : enemies) {
 		for (auto const& projectile : projectiles) {
-			if (enemy->isOverlap(projectile) && !projectile->enemyShot) {
+			if (enemy->isOverlap(projectile) && !projectile->enemyShot && enemy->vidas==1) {
 				bool pInList = std::find(deleteProjectiles.begin(),
 					deleteProjectiles.end(),
 					projectile) != deleteProjectiles.end();
@@ -244,6 +252,17 @@ void GameLayer::update() {
 				/*points++;
 				textPoints->content = to_string(points);*/
 
+			}
+			else if(enemy->isOverlap(projectile) && !projectile->enemyShot && enemy->vidas > 1){
+				bool pInList = std::find(deleteProjectiles.begin(),
+					deleteProjectiles.end(),
+					projectile) != deleteProjectiles.end();
+
+				if (!pInList) {
+					deleteProjectiles.push_back(projectile);
+				}
+
+				enemy->vidas--;
 			}
 
 			if (player->isOverlap(projectile) && projectile->enemyShot) {

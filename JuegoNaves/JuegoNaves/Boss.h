@@ -9,7 +9,6 @@ public:
 	Projectile* shootPlayer() override;
 	void update() override;
 	void tp();
-	int vidas = 3;
 
 	int tpTime;
 };

@@ -13,6 +13,7 @@ public:
 	Animation* aMoving = nullptr;
 	Animation* animation = nullptr; // Referencia a la animación mostrada
 
+	int vidas = 1;
 	int shootCadence = 0;
 	int shootTime = -1;
 	virtual Projectile* shootPlayer();
