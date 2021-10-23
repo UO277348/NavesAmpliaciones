@@ -25,13 +25,15 @@ void GameLayer::init() {
 		WIDTH * 0.85, HEIGHT * 0.07, 24, 24, game);
 	backgroundVidas = new Actor("res/corazon.png",
 		WIDTH * 0.65, HEIGHT * 0.07, 44, 36, game);
-
+	backgroundDisparos = new Actor("res/disparo_jugador.png",
+		WIDTH * 0.45, HEIGHT * 0.07, 18, 6, game);
 
 	projectiles.clear(); // Vaciar por si reiniciamos el juego
 
 	enemies.clear(); // Vaciar por si reiniciamos el juego
-	enemies.push_back(new Enemy(300, 50, game));
-	enemies.push_back(new Enemy(300, 200, game));
+	enemies.push_back(new Minion(300, 50, game));
+	enemies.push_back(new Minion(300, 200, game));
+	enemies.push_back(new Boss(300, 300, game));
 
 	recolectables.clear();
 	recolectables.push_back(new CajaMunicion(300, 125, game));
@@ -147,10 +149,18 @@ void GameLayer::update() {
 	background->update();
 	// Generar enemigos
 	newEnemyTime--;
+	newBossTime--;
 	if (newEnemyTime <= 0) {
 		int rX = (rand() % (600 - 500)) + 1 + 500;
 		int rY = (rand() % (300 - 60)) + 1 + 60;
-		enemies.push_back(new Enemy(rX, rY, game));
+
+		if (newBossTime<=0) {
+			enemies.push_back(new Boss(rX, rY, game));
+			newBossTime = 300;
+		}
+		else
+			enemies.push_back(new Minion(rX, rY, game));
+
 		newEnemyTime = 110;
 	}
 
@@ -216,7 +226,7 @@ void GameLayer::update() {
 
 	for (auto const& enemy : enemies) {
 		for (auto const& projectile : projectiles) {
-			if (enemy->isOverlap(projectile) && !projectile->enemyShot) {
+			if (enemy->isOverlap(projectile) && !projectile->enemyShot && enemy->vidas==1) {
 				bool pInList = std::find(deleteProjectiles.begin(),
 					deleteProjectiles.end(),
 					projectile) != deleteProjectiles.end();
@@ -242,6 +252,17 @@ void GameLayer::update() {
 				/*points++;
 				textPoints->content = to_string(points);*/
 
+			}
+			else if(enemy->isOverlap(projectile) && !projectile->enemyShot && enemy->vidas > 1){
+				bool pInList = std::find(deleteProjectiles.begin(),
+					deleteProjectiles.end(),
+					projectile) != deleteProjectiles.end();
+
+				if (!pInList) {
+					deleteProjectiles.push_back(projectile);
+				}
+
+				enemy->vidas--;
 			}
 
 			if (player->isOverlap(projectile) && projectile->enemyShot) {
@@ -312,6 +333,7 @@ void GameLayer::draw() {
 	textMunicion->draw();
 	backgroundPoints->draw();
 	backgroundVidas->draw();
+	backgroundDisparos->draw();
 
 	SDL_RenderPresent(game->renderer); // Renderiza
 }
