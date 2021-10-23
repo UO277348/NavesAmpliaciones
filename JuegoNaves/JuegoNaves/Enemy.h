@@ -7,14 +7,14 @@
 class Enemy : public Actor
 {
 public:
-	Enemy(float x, float y, Game* game);
+	Enemy(string filename, float x, float y, float fileWidth, float fileHeight, Game* game);
 	void draw() override; // Va a sobrescribir
-	void update();
-	Animation* aMoving;
-	Animation* animation; // Referencia a la animación mostrada
+	virtual void update();
+	Animation* aMoving = nullptr;
+	Animation* animation = nullptr; // Referencia a la animación mostrada
 
-	int shootCadence = 50;
-	int shootTime = 5;
-	Projectile* shootPlayer();
+	int shootCadence = 0;
+	int shootTime = -1;
+	virtual Projectile* shootPlayer();
 };
 

@@ -7,6 +7,8 @@
 #include "Projectile.h"
 #include "Text.h"
 #include "CajaMunicion.h"
+#include "Minion.h"
+#include "Boss.h"
 
 #include <list>
 class GameLayer : public Layer
@@ -33,6 +35,7 @@ public:
 	Background* background;
 	Actor* backgroundPoints;
 	Actor* backgroundVidas;
+	Actor* backgroundDisparos;
 
 	bool controlShoot = false;
 	int controlMoveX = 0;
